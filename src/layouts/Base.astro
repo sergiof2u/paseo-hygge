@@ -1,0 +1,117 @@
+---
+import '../styles/global.css';
+import { site, instagramUrl, facebookUrl, whatsappUrl } from '../site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const fullTitle = title ? `${title} — ${site.nombre}` : `${site.nombre} · Subachoque`;
+const metaDesc = description ?? site.descripcion;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const imagen = new URL('/compartir.jpg', Astro.site);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/favicon-180.png" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={metaDesc} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#3B0412" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={metaDesc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imagen} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Karla:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ShoppingCenter',
+        name: site.nombre,
+        description: site.descripcion,
+        image: imagen.href,
+        url: Astro.site?.href,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Calle 4 #4-58',
+          addressLocality: 'Subachoque',
+          addressRegion: 'Cundinamarca',
+          addressCountry: 'CO',
+        },
+        sameAs: [instagramUrl, facebookUrl],
+      })}
+    />
+    {site.metaPixel && (
+      <script is:inline define:vars={{ id: site.metaPixel }}>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', id); fbq('track', 'PageView');
+      </script>
+    )}
+    {site.googleAnalytics && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.googleAnalytics}`}></script>
+        <script is:inline define:vars={{ id: site.googleAnalytics }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date()); gtag('config', id);
+        </script>
+      </>
+    )}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label={site.nombre}>
+          <img src="/logo/logo-color.png" alt={site.nombre} width="1346" height="857" />
+        </a>
+        <nav aria-label="Principal">
+          <a href="/#el-paseo">El Paseo</a>
+          <a href="/#locales">Locales</a>
+          <a href="/#visitanos">Visítanos</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <img class="footer-logo" src="/logo/monograma-rojo.png" alt="" width="688" height="587" />
+          <p class="footer-name">{site.nombre}</p>
+          <p>{site.direccion}</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href={instagramUrl} rel="noopener">Instagram @{site.instagram}</a></li>
+          <li><a href={facebookUrl} rel="noopener">Facebook</a></li>
+          {whatsappUrl && <li><a href={whatsappUrl} rel="noopener">WhatsApp</a></li>}
+          <li><a href={site.mapa} rel="noopener">Cómo llegar</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
