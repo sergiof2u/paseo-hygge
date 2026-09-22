@@ -7,6 +7,5 @@ horario: Miércoles a domingo y festivos, 11:00 a. m. a 6:00 p. m.
 instagram: suma_en_subachoque
 whatsapp: '573164142904'
 web: https://sumaensubachoque.com
-foto: /fotos/locales/suma.jpg
 orden: 5
 ---

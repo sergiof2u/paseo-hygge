@@ -62,7 +62,7 @@ const iniciales = (nombre: string) =>
         {locales.map(({ id, data }, i) => (
           <li class="local" id={id}>
             {data.foto ? (
-              <img class="local-foto" src={data.foto} alt={`Entrada de ${data.nombre}`} loading="lazy" />
+              <img class="local-foto" src={data.foto} alt={data.nombre} loading="lazy" />
             ) : (
               <div class={`local-sello tono-${tonos[i % tonos.length]}`} aria-hidden="true">
                 {iniciales(data.nombre)}
