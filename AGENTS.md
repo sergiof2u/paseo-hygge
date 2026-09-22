@@ -6,7 +6,8 @@ dueños del Paseo. Sirve de soporte a las redes, que hoy son solo Instagram
 solidez al Paseo como lugar, con una referencia corta de cada local.
 
 Estático, hecho con Astro, con la misma base del sitio de SUMA
-(`C:\Users\USUARIO\suma-web`). Todavía no tiene dominio ni repositorio.
+(`C:\Users\USUARIO\suma-web`). Repositorio: `github.com/sergiof2u/paseo-hygge`.
+Todavía no tiene dominio: vive en `https://sergiof2u.github.io/paseo-hygge/`.
 
 Estas instrucciones aplican a cualquier IA que trabaje en este repositorio.
 
@@ -51,6 +52,22 @@ títulos y Karla para texto, las dos de Google Fonts. En el CSS se usan los toke
 - Nada de superlativos de turismo («experiencia inolvidable», «lugar mágico»).
 - Nunca la construcción «no es X, sino Y».
 - No inventar datos de un local: si no lo mandó, queda por completar.
+
+## Rutas y dominio
+
+Mientras no haya dominio, el sitio vive en una subcarpeta (`/paseo-hygge/`). Por
+eso toda ruta interna, de imagen o de enlace, pasa por `ruta()` de `src/site.ts`:
+`src={ruta('/fotos/fachada.jpg')}`. Una ruta escrita a mano como `/fotos/...`
+funciona en el computador y se rompe publicada.
+
+Para pasar a dominio propio: en `astro.config.mjs`, `site` pasa a ser el dominio
+y `base` a `'/'`; se crea `public/CNAME` con el dominio, y se configura el DNS
+en el proveedor apuntando a GitHub Pages.
+
+## Despliegue
+
+`git push` a `main` dispara GitHub Actions (`.github/workflows/deploy.yml`), que
+compila y publica en GitHub Pages. Tarda entre 30 y 100 segundos.
 
 ## Comandos
 
