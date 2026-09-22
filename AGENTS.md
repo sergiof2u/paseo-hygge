@@ -46,6 +46,13 @@ Colores del logo, como tokens en `src/styles/global.css`: vino `#3B0412`, rojo
 títulos y Karla para texto, las dos de Google Fonts. En el CSS se usan los tokens
 `--serif` y `--sans`, nunca el nombre de la fuente.
 
+Solo se usan los cuatro colores del logo. Los fondos y las líneas son el
+amarillo mezclado con blanco, el texto es el vino, y el verde va solo en
+rellenos y adornos, nunca como texto (no se lee sobre el fondo claro). El logo
+se usa en sus versiones originales, sin filtros. Pendiente: el rojo del archivo
+del logo (`#A72922`) no coincide con el de la hoja de colores (`#9A342A`); se
+preguntó a los dueños cuál es el oficial.
+
 ## Redacción
 
 - Tuteo, nunca voseo.

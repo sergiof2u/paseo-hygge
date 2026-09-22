@@ -5,11 +5,13 @@
   --verde: #9fa969;
   --amarillo: #f2cf69;
 
-  --fondo: #fbf7ee;
-  --fondo-2: #f3ecdc;
-  --texto: #2e1a17;
-  --texto-suave: #6b5550;
-  --borde: #e4d9c3;
+  /* Todo lo demás sale de la paleta: los fondos y las líneas son el amarillo
+     mezclado con blanco, y el texto es el vino. No agregar colores sueltos. */
+  --fondo: #fefaf0;       /* amarillo 10 % */
+  --fondo-2: #fcf3db;     /* amarillo 24 % */
+  --borde: #f8e7b4;       /* amarillo 50 % */
+  --texto: var(--vino);
+  --texto-suave: #724950; /* vino 72 % sobre el fondo */
 
   --serif: 'Fraunces', Georgia, serif;
   --sans: 'Karla', 'Segoe UI', system-ui, sans-serif;
@@ -22,7 +24,7 @@
 *::before,
 *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+html { scroll-behavior: smooth; scroll-padding-top: 104px; }
 
 body {
   margin: 0;
@@ -69,8 +71,8 @@ p { margin: 0 0 1em; }
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--borde);
 }
-.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
-.brand img { height: 56px; width: auto; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 92px; padding-block: 8px; }
+.brand img { height: 76px; width: auto; }
 .site-header nav { display: flex; gap: clamp(12px, 3vw, 32px); }
 .site-header nav a {
   color: var(--vino);
@@ -220,8 +222,7 @@ p { margin: 0 0 1em; }
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--verde);
-  filter: brightness(0.7);
+  color: var(--rojo);
   margin-bottom: 0.4em;
 }
 .pendiente { color: var(--texto-suave); font-style: italic; }
@@ -248,12 +249,12 @@ p { margin: 0 0 1em; }
 }
 
 /* Pie */
-.site-footer { background: var(--vino); color: #eadbd2; padding-block: 48px; }
-.site-footer a { color: var(--amarillo); text-decoration: none; }
+.site-footer { background: var(--fondo-2); color: var(--texto-suave); border-top: 1px solid var(--borde); padding-block: 48px; }
+.site-footer a { color: var(--rojo); font-weight: 500; text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 .footer-inner { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; align-items: end; }
-.footer-logo { height: 64px; width: auto; filter: brightness(0) invert(0.92); margin-bottom: 12px; }
-.footer-name { font-family: var(--serif); font-size: 1.4rem; color: #fff; margin-bottom: 0.2em; }
+.footer-logo { height: 72px; width: auto; margin-bottom: 12px; }
+.footer-name { font-family: var(--serif); font-size: 1.4rem; color: var(--vino); margin-bottom: 0.2em; }
 .footer-links { list-style: none; margin: 0; padding: 0; line-height: 2; }
 
 @media (max-width: 820px) {
@@ -263,7 +264,8 @@ p { margin: 0 0 1em; }
   .hero-foto { aspect-ratio: 16 / 10; object-position: 12% 50%; }
   .dos-columnas { grid-template-columns: 1fr; }
   .galeria { grid-template-columns: 1fr; }
-  .brand img { height: 44px; }
+  .brand img { height: 60px; }
+  .header-inner { min-height: 76px; }
   .site-header nav { gap: 14px; font-size: 0.95rem; }
   .datos > div { grid-template-columns: 1fr; gap: 2px; }
 }
