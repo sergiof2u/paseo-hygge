@@ -1,0 +1,132 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { site, instagramUrl, whatsappUrl, ruta } from '../site';
+
+const locales = (await getCollection('locales', ({ data }) => data.publicado)).sort(
+  (a, b) => a.data.orden - b.data.orden || a.data.nombre.localeCompare(b.data.nombre, 'es'),
+);
+
+const tonos = ['rojo', 'verde', 'vino', 'amarillo'];
+const iniciales = (nombre: string) =>
+  nombre
+    .replace(/&/g, '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((p) => p[0])
+    .join('')
+    .toUpperCase();
+---
+
+<Base title="Borrador" noindex>
+  <section class="hero">
+    <img class="hero-foto" src={ruta('/fotos/fachada.jpg')} alt="Fachada del Paseo Hygge sobre la calle 4 de Subachoque" width="2289" height="740" />
+    <div class="container hero-texto">
+      <p class="eyebrow">Subachoque, Cundinamarca</p>
+      <h1>Un paseo de jardines, fuentes y locales pequeños en el centro del pueblo</h1>
+      <p class="hero-sub">Café, chocolate, comida, oficios y bienestar, {site.distancia}.</p>
+      <div class="acciones">
+        <a class="boton" href="#locales">Ver los locales</a>
+        <a class="boton boton--claro" href={site.mapa} rel="noopener">Cómo llegar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="el-paseo">
+    <div class="container dos-columnas">
+      <div>
+        <p class="eyebrow">El Paseo</p>
+        <h2>Hygge es una palabra danesa</h2>
+        <p>
+          Nombra una filosofía de vida en la que lo importante es disfrutar de lo sencillo y lo cotidiano: la
+          comodidad, la calidez, estar a gusto en un lugar acogedor.
+        </p>
+        <p>
+          Detrás de la fachada de la calle 4 hay un corredor de jardines, fuentes y faroles. A lado y lado hay locales
+          pequeños donde puedes tomarte un café, comprar algo hecho a mano, comer algo o quedarte un rato en una
+          hamaca.
+        </p>
+      </div>
+      <figure class="foto-marco">
+        <img src={ruta('/fotos/muro-hygge.jpg')} alt="Muro del Paseo con el significado de la palabra hygge, una hamaca y una bicicleta antigua" loading="lazy" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="seccion seccion--tinta" id="locales">
+    <div class="container">
+      <p class="eyebrow">Locales</p>
+      <h2>Quiénes están en el Paseo</h2>
+      <ul class="locales">
+        {locales.map(({ id, data }, i) => (
+          <li class="local" id={id}>
+            {data.foto ? (
+              <img class="local-foto" src={ruta(data.foto)} alt={data.nombre} loading="lazy" />
+            ) : (
+              <div class={`local-sello tono-${tonos[i % tonos.length]}`} aria-hidden="true">
+                {iniciales(data.nombre)}
+              </div>
+            )}
+            <div class="local-cuerpo">
+              {data.categoria && <p class="local-categoria">{data.categoria}</p>}
+              <h3>{data.nombre}</h3>
+              {data.descripcion ? (
+                <p>{data.descripcion}</p>
+              ) : (
+                <p class="pendiente">Ficha por completar.</p>
+              )}
+              {(data.numeroLocal || data.horario) && (
+                <p class="local-datos">
+                  {data.numeroLocal && <span>Local {data.numeroLocal}</span>}
+                  {data.horario && <span>{data.horario}</span>}
+                </p>
+              )}
+              <p class="local-enlaces">
+                {data.instagram && (
+                  <a href={`https://www.instagram.com/${data.instagram}/`} rel="noopener">@{data.instagram}</a>
+                )}
+                {data.whatsapp && <a href={`https://wa.me/${data.whatsapp}`} rel="noopener">WhatsApp</a>}
+                {data.web && <a href={data.web} rel="noopener">Sitio web</a>}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="galeria" aria-label="Fotos del Paseo">
+    <img src={ruta('/fotos/pasillo-noche.jpg')} alt="El pasillo del Paseo al atardecer, con los faroles encendidos" loading="lazy" />
+    <img src={ruta('/fotos/corredor-navidad.jpg')} alt="El corredor central decorado para Navidad" loading="lazy" />
+  </section>
+
+  <section class="seccion" id="visitanos">
+    <div class="container dos-columnas">
+      <div>
+        <p class="eyebrow">Visítanos</p>
+        <h2>Cómo llegar</h2>
+        <dl class="datos">
+          <div><dt>Dirección</dt><dd>{site.direccion}</dd></div>
+          <div><dt>Distancia</dt><dd>Subachoque queda {site.distancia}.</dd></div>
+          <div><dt>Horario</dt><dd>{site.horario || 'Por confirmar. Cada local tiene el suyo.'}</dd></div>
+        </dl>
+        <div class="acciones">
+          <a class="boton" href={site.mapa} rel="noopener">Abrir en Google Maps</a>
+          {whatsappUrl ? (
+            <a class="boton boton--linea" href={whatsappUrl} rel="noopener">Escríbenos</a>
+          ) : (
+            <a class="boton boton--linea" href={instagramUrl} rel="noopener">Síguenos en Instagram</a>
+          )}
+        </div>
+      </div>
+      <div class="mapa">
+        <iframe
+          src={site.mapaEmbed}
+          title="Mapa del Paseo Hygge en Subachoque"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+</Base>

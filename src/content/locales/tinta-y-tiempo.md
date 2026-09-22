@@ -1,4 +1,4 @@
 ---
-nombre: Tinta & Tiempo
+nombre: Tinta y Tiempo
 orden: 5
 ---
