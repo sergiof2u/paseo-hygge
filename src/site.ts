@@ -7,8 +7,9 @@ export const site = {
     'Un paseo de jardines, fuentes y locales pequeños en el centro de Subachoque, Cundinamarca, a 40 kilómetros de Bogotá. Café, chocolate, comida, oficios y bienestar en un mismo lugar.',
 
   direccion: 'Cl. 4 #4-58, Subachoque, Cundinamarca',
-  mapa: 'https://share.google/C4EpS4eDRcIz4K9mY',
-  mapaEmbed: 'https://www.google.com/maps?q=Calle+4+%234-58,+Subachoque,+Cundinamarca&output=embed',
+  // Ficha de El Paseo Hygge en Google Maps (no la de SUMA).
+  mapa: 'https://maps.google.com/?cid=3673235747683103509',
+  mapaEmbed: 'https://maps.google.com/maps?q=El+Paseo+Hygge,+Subachoque&ll=4.930661,-74.1740683&z=17&output=embed',
   distancia: 'a 40 kilómetros de Bogotá',
 
   // Pendiente: lo confirman los dueños del Paseo.
