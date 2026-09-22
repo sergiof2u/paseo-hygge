@@ -7,7 +7,7 @@ solidez al Paseo como lugar, con una referencia corta de cada local.
 
 Estático, hecho con Astro, con la misma base del sitio de SUMA
 (`C:\Users\USUARIO\suma-web`). Repositorio: `github.com/sergiof2u/paseo-hygge`.
-Todavía no tiene dominio: vive en `https://sergiof2u.github.io/paseo-hygge/`.
+Dominio: `paseohygge.com`, en Namecheap (DNS: cuatro registros A de GitHub Pages en `@` y CNAME `www` → `sergiof2u.github.io`).
 
 Estas instrucciones aplican a cualquier IA que trabaje en este repositorio.
 
@@ -53,16 +53,24 @@ títulos y Karla para texto, las dos de Google Fonts. En el CSS se usan los toke
 - Nunca la construcción «no es X, sino Y».
 - No inventar datos de un local: si no lo mandó, queda por completar.
 
-## Rutas y dominio
+## Portada provisional y borrador
 
-Mientras no haya dominio, el sitio vive en una subcarpeta (`/paseo-hygge/`). Por
-eso toda ruta interna, de imagen o de enlace, pasa por `ruta()` de `src/site.ts`:
-`src={ruta('/fotos/fachada.jpg')}`. Una ruta escrita a mano como `/fotos/...`
-funciona en el computador y se rompe publicada.
+Mientras llegan los datos de los locales, `/` es una portada provisional
+(`src/pages/index.astro`): la fachada, «en construcción» y la lista de locales.
+La página completa vive en `/borrador/` (`src/pages/borrador.astro`), sin
+indexar. Cuando haya datos, el borrador pasa a ser la portada.
 
-Para pasar a dominio propio: en `astro.config.mjs`, `site` pasa a ser el dominio
-y `base` a `'/'`; se crea `public/CNAME` con el dominio, y se configura el DNS
-en el proveedor apuntando a GitHub Pages.
+## Orden de los locales
+
+El campo `orden` sigue el recorrido real por el Paseo, y se respeta en la
+portada, en el borrador y en cualquier texto que los nombre: Juaica, Jah Café,
+Me Latte Chocolate, Casa Nube, Tinta y Tiempo, SUMA, Ahumadictos. Polca está
+oculto (`publicado: false`) hasta confirmar si sigue en el Paseo.
+
+## Rutas
+
+Toda ruta interna pasa por `ruta()` de `src/site.ts`. Hoy la base es `/`, pero
+así el sitio sigue funcionando si vuelve a vivir en una subcarpeta.
 
 ## Despliegue
 
