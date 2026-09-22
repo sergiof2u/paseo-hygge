@@ -3,7 +3,7 @@
 // El sitio completo está en borrador.astro (/borrador/).
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { site, instagramUrl, ruta } from '../site';
+import { site, instagramUrl, facebookUrl, ruta } from '../site';
 
 const locales = (await getCollection('locales', ({ data }) => data.publicado)).sort(
   (a, b) => a.data.orden - b.data.orden,
@@ -22,10 +22,11 @@ const locales = (await getCollection('locales', ({ data }) => data.publicado)).s
         <h1>Muy pronto, todo el Paseo en un solo lugar</h1>
         <p class="pronto-texto">
           Estamos armando la página del Paseo Hygge: qué encuentras en cada local, sus horarios y cómo llegar.
-          Mientras tanto, síguenos en Instagram o ven a recorrerlo.
+          Mientras tanto, síguenos en Instagram y Facebook, o ven a recorrerlo.
         </p>
         <div class="acciones">
           <a class="boton" href={instagramUrl} rel="noopener">Instagram @{site.instagram}</a>
+          <a class="boton boton--linea" href={facebookUrl} rel="noopener">Facebook</a>
           <a class="boton boton--claro" href={site.mapa} rel="noopener">Cómo llegar</a>
         </div>
         <p class="pronto-direccion">{site.direccion}, {site.distancia}.</p>
