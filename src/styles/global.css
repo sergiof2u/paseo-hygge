@@ -234,5 +234,5 @@ p { margin: 0 0 1em; }
   .mapa iframe { box-shadow: 8px 8px 0 var(--amarillo); }
 }
 @media (max-width: 420px) {
-  .site-header nav a[href="/#el-paseo"] { display: none; }
+  .site-header nav .nav-paseo { display: none; }
 }

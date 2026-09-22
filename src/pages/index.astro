@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { site, instagramUrl, whatsappUrl } from '../site';
+import { site, instagramUrl, whatsappUrl, ruta } from '../site';
 
 const locales = (await getCollection('locales', ({ data }) => data.publicado)).sort(
   (a, b) => a.data.orden - b.data.orden || a.data.nombre.localeCompare(b.data.nombre, 'es'),
@@ -21,7 +21,7 @@ const iniciales = (nombre: string) =>
 
 <Base>
   <section class="hero">
-    <img class="hero-foto" src="/fotos/fachada.jpg" alt="Fachada del Paseo Hygge sobre la calle 4 de Subachoque" width="2289" height="740" />
+    <img class="hero-foto" src={ruta('/fotos/fachada.jpg')} alt="Fachada del Paseo Hygge sobre la calle 4 de Subachoque" width="2289" height="740" />
     <div class="container hero-texto">
       <p class="eyebrow">Subachoque, Cundinamarca</p>
       <h1>Un paseo de jardines, fuentes y locales pequeños en el centro del pueblo</h1>
@@ -49,7 +49,7 @@ const iniciales = (nombre: string) =>
         </p>
       </div>
       <figure class="foto-marco">
-        <img src="/fotos/muro-hygge.jpg" alt="Muro del Paseo con el significado de la palabra hygge, una hamaca y una bicicleta antigua" loading="lazy" />
+        <img src={ruta('/fotos/muro-hygge.jpg')} alt="Muro del Paseo con el significado de la palabra hygge, una hamaca y una bicicleta antigua" loading="lazy" />
       </figure>
     </div>
   </section>
@@ -62,7 +62,7 @@ const iniciales = (nombre: string) =>
         {locales.map(({ id, data }, i) => (
           <li class="local" id={id}>
             {data.foto ? (
-              <img class="local-foto" src={data.foto} alt={data.nombre} loading="lazy" />
+              <img class="local-foto" src={ruta(data.foto)} alt={data.nombre} loading="lazy" />
             ) : (
               <div class={`local-sello tono-${tonos[i % tonos.length]}`} aria-hidden="true">
                 {iniciales(data.nombre)}
@@ -97,8 +97,8 @@ const iniciales = (nombre: string) =>
   </section>
 
   <section class="galeria" aria-label="Fotos del Paseo">
-    <img src="/fotos/pasillo-noche.jpg" alt="El pasillo del Paseo al atardecer, con los faroles encendidos" loading="lazy" />
-    <img src="/fotos/corredor-navidad.jpg" alt="El corredor central decorado para Navidad" loading="lazy" />
+    <img src={ruta('/fotos/pasillo-noche.jpg')} alt="El pasillo del Paseo al atardecer, con los faroles encendidos" loading="lazy" />
+    <img src={ruta('/fotos/corredor-navidad.jpg')} alt="El corredor central decorado para Navidad" loading="lazy" />
   </section>
 
   <section class="seccion" id="visitanos">

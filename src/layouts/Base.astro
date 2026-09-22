@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { site, instagramUrl, facebookUrl, whatsappUrl } from '../site';
+import { site, instagramUrl, facebookUrl, whatsappUrl, ruta } from '../site';
 
 interface Props {
   title?: string;
@@ -11,7 +11,7 @@ const { title, description } = Astro.props;
 const fullTitle = title ? `${title} — ${site.nombre}` : `${site.nombre} · Subachoque`;
 const metaDesc = description ?? site.descripcion;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const imagen = new URL('/compartir.jpg', Astro.site);
+const imagen = new URL(ruta('/compartir.jpg'), Astro.site);
 ---
 
 <!doctype html>
@@ -19,8 +19,8 @@ const imagen = new URL('/compartir.jpg', Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="apple-touch-icon" href="/favicon-180.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href={ruta('/favicon-32.png')} />
+    <link rel="apple-touch-icon" href={ruta('/favicon-180.png')} />
     <title>{fullTitle}</title>
     <meta name="description" content={metaDesc} />
     <link rel="canonical" href={canonical} />
@@ -83,13 +83,13 @@ const imagen = new URL('/compartir.jpg', Astro.site);
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="/" aria-label={site.nombre}>
-          <img src="/logo/logo-color.png" alt={site.nombre} width="1346" height="857" />
+        <a class="brand" href={ruta('/')} aria-label={site.nombre}>
+          <img src={ruta('/logo/logo-color.png')} alt={site.nombre} width="1346" height="857" />
         </a>
         <nav aria-label="Principal">
-          <a href="/#el-paseo">El Paseo</a>
-          <a href="/#locales">Locales</a>
-          <a href="/#visitanos">Visítanos</a>
+          <a class="nav-paseo" href={ruta("/#el-paseo")}>El Paseo</a>
+          <a href={ruta('/#locales')}>Locales</a>
+          <a href={ruta('/#visitanos')}>Visítanos</a>
         </nav>
       </div>
     </header>
@@ -101,7 +101,7 @@ const imagen = new URL('/compartir.jpg', Astro.site);
     <footer class="site-footer">
       <div class="container footer-inner">
         <div>
-          <img class="footer-logo" src="/logo/monograma-rojo.png" alt="" width="688" height="587" />
+          <img class="footer-logo" src={ruta('/logo/monograma-rojo.png')} alt="" width="688" height="587" />
           <p class="footer-name">{site.nombre}</p>
           <p>{site.direccion}</p>
         </div>

@@ -24,6 +24,11 @@ export const site = {
   googleAnalytics: '',
 } as const;
 
+// Antepone la base del sitio a una ruta interna. Mientras el sitio viva en
+// sergiof2u.github.io/paseo-hygge/ la base es /paseo-hygge; con dominio propio
+// será /. Toda ruta interna pasa por aquí: una escrita a mano se rompe al cambiar.
+export const ruta = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
+
 export const whatsappUrl = site.whatsapp ? `https://wa.me/${site.whatsapp}` : '';
 export const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
 export const facebookUrl = `https://www.facebook.com/${site.facebook}`;
