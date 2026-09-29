@@ -12,11 +12,11 @@ export const site = {
   mapaEmbed: 'https://maps.google.com/maps?q=El+Paseo+Hygge,+Subachoque&ll=4.930661,-74.1740683&z=17&output=embed',
   distancia: 'a 40 kilómetros de Bogotá',
 
-  // Pendiente: lo confirman los dueños del Paseo.
-  horario: '',
+  horario: 'Todos los días, de 9:00 a. m. a 7:00 p. m.',
 
   instagram: 'paseohygge',
   facebook: 'paseohygge',
+  email: 'paseohygge@gmail.com',
   // Pendiente: número de contacto del Paseo, en formato 57XXXXXXXXXX.
   whatsapp: '',
 

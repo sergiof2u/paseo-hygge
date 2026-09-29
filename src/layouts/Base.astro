@@ -110,11 +110,12 @@ const imagen = new URL(ruta('/compartir.jpg'), Astro.site);
         <div>
           <img class="footer-logo" src={ruta('/logo/monograma-rojo.png')} alt="" width="688" height="587" />
           <p class="footer-name">{site.nombre}</p>
-          <p>{site.direccion}</p>
+          <p>{site.direccion}<br />{site.horario}</p>
         </div>
         <ul class="footer-links">
           <li><a href={instagramUrl} rel="noopener">Instagram @{site.instagram}</a></li>
           <li><a href={facebookUrl} rel="noopener">Facebook</a></li>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
           {whatsappUrl && <li><a href={whatsappUrl} rel="noopener">WhatsApp</a></li>}
           <li><a href={site.mapa} rel="noopener">Cómo llegar</a></li>
         </ul>

@@ -183,6 +183,23 @@ p { margin: 0 0 1em; }
   box-shadow: 14px 14px 0 var(--verde);
 }
 
+/* La cita de los dueños sobre la palabra hygge */
+.seccion--cita { padding-block: clamp(32px, 5vw, 56px); }
+.cita {
+  margin: 0;
+  max-width: 62ch;
+  border-left: 4px solid var(--amarillo);
+  padding-left: clamp(20px, 3vw, 32px);
+}
+.cita blockquote {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  line-height: 1.35;
+  color: var(--vino);
+}
+.cita figcaption { margin-top: 1em; color: var(--texto-suave); }
+
 /* Locales */
 .locales {
   list-style: none;
