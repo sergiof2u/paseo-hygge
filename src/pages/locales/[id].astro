@@ -1,0 +1,76 @@
+---
+// Página propia de cada local que tenga descripción y al menos dos fotos.
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { ruta, paginaLocales } from '../../site';
+import { localesPublicados, tienePagina, type Local } from '../../locales';
+
+export async function getStaticPaths() {
+  const locales = (await localesPublicados()).filter(tienePagina);
+  return locales.map((local) => ({ params: { id: local.id }, props: { local } }));
+}
+
+const { local } = Astro.props as { local: Local };
+const { data } = local;
+const { Content } = await render(local);
+const tieneTexto = Boolean(local.body?.trim());
+const fotos = data.fotos ?? [];
+const volver = ruta(`${paginaLocales}#${local.id}`);
+---
+
+<Base title={data.nombre} description={data.descripcion} imagen={data.foto ?? fotos[0]?.src} menu={false}>
+  <section class="seccion local-pagina">
+    <div class="container">
+      <p class="volver"><a href={volver}>← Todos los locales del Paseo</a></p>
+
+      <div class="local-cabecera">
+        {data.logo && <img class="local-logo" src={ruta(data.logo)} alt={`Logo de ${data.nombre}`} />}
+        <div>
+          {data.categoria && <p class="eyebrow">{data.categoria}</p>}
+          <h1>{data.nombre}</h1>
+          <p class="local-intro">{data.descripcion}</p>
+        </div>
+      </div>
+
+      <ul class="local-galeria">
+        {fotos.map((f, i) => (
+          <li><img src={ruta(f.src)} alt={f.alt} loading={i < 2 ? 'eager' : 'lazy'} /></li>
+        ))}
+      </ul>
+
+      <div class="local-info">
+        {tieneTexto && (
+          <div class="local-texto">
+            <Content />
+          </div>
+        )}
+        <dl class="datos">
+          {data.numeroLocal && (
+            <div><dt>Local</dt><dd>{data.numeroLocal}, en el Paseo Hygge</dd></div>
+          )}
+          {data.horario && (
+            <div><dt>Horario</dt><dd>{data.horario}</dd></div>
+          )}
+          {data.instagram && (
+            <div>
+              <dt>Instagram</dt>
+              <dd><a href={`https://www.instagram.com/${data.instagram}/`} rel="noopener">@{data.instagram}</a></dd>
+            </div>
+          )}
+          {data.web && (
+            <div><dt>Sitio web</dt><dd><a href={data.web} rel="noopener">{data.web.replace(/^https?:\/\//, '')}</a></dd></div>
+          )}
+        </dl>
+      </div>
+
+      <div class="acciones">
+        {data.whatsapp && (
+          <a class="boton" href={`https://wa.me/${data.whatsapp}`} rel="noopener">Escribir por WhatsApp</a>
+        )}
+        {data.instagram && (
+          <a class="boton boton--linea" href={`https://www.instagram.com/${data.instagram}/`} rel="noopener">Ver en Instagram</a>
+        )}
+      </div>
+    </div>
+  </section>
+</Base>

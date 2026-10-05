@@ -250,6 +250,39 @@ p { margin: 0 0 1em; }
 .local-enlaces { margin-top: auto; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 6px 16px; }
 .local-enlaces a { font-weight: 700; text-decoration: none; }
 .local-enlaces a:hover { text-decoration: underline; }
+.local-foto-enlace { display: block; }
+.local-ver-mas::after { content: ' →'; }
+
+/* Página propia de un local */
+.local-pagina { padding-top: clamp(32px, 5vw, 56px); }
+.volver { margin: 0 0 1.6rem; font-size: 0.95rem; }
+.volver a { color: var(--rojo); font-weight: 700; text-decoration: none; }
+.volver a:hover { text-decoration: underline; }
+.local-cabecera { display: flex; gap: 28px; align-items: center; }
+.local-logo {
+  width: 132px;
+  height: 132px;
+  flex: none;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+.local-cabecera h1 { margin-bottom: 0.3em; }
+.local-intro { font-size: 1.12rem; max-width: 62ch; margin: 0; }
+/* En columnas, con cada foto en su proporción: cualquier número de fotos llena parejo. */
+.local-galeria {
+  list-style: none;
+  margin: 2.2rem 0;
+  padding: 0;
+  columns: 3 240px;
+  column-gap: 14px;
+}
+.local-galeria li { break-inside: avoid; margin-bottom: 14px; }
+.local-galeria img { width: 100%; height: auto; border-radius: var(--radio); display: block; }
+.local-info { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start; }
+.local-info:has(> .datos:only-child) { grid-template-columns: minmax(0, 560px); }
+.local-texto > :first-child { margin-top: 0; }
 
 /* Galería */
 .galeria { display: grid; grid-template-columns: 1fr 1.33fr; }
@@ -288,12 +321,19 @@ p { margin: 0 0 1em; }
   .header-inner { min-height: 76px; }
   .site-header nav { gap: 14px; font-size: 0.95rem; }
   .datos > div { grid-template-columns: 1fr; gap: 2px; }
+  .local-info { grid-template-columns: 1fr; gap: 8px; }
 }
 @media (max-width: 600px) {
   .local { flex-direction: row; }
   .local-foto, .local-sello { width: 96px; flex: none; aspect-ratio: auto; min-height: 100%; }
   .local-sello { font-size: 1.8rem; }
   .local-cuerpo { padding: 16px 18px; }
+  .local-foto-enlace { width: 96px; flex: none; }
+  .local-foto-enlace .local-foto { width: 100%; height: 100%; }
+  .local-cabecera { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .local-logo { width: 96px; height: 96px; }
+  .local-galeria { columns: 2; column-gap: 8px; }
+  .local-galeria li { margin-bottom: 8px; }
   .foto-marco img, .mapa iframe { box-shadow: 8px 8px 0 var(--verde); }
   .mapa iframe { box-shadow: 8px 8px 0 var(--amarillo); }
 }

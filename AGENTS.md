@@ -20,6 +20,15 @@ Estas instrucciones aplican a cualquier IA que trabaje en este repositorio.
   Los campos están en `src/content.config.ts`. Un local sin `descripcion` sale con
   «Ficha por completar».
 - `publicado: false` oculta un local sin borrar su archivo.
+- **Página propia del local** (`src/pages/locales/[id].astro`, en `/locales/<slug>/`):
+  se genera sola cuando el local tiene `descripcion` y al menos dos `fotos`
+  (regla en `src/locales.ts`). Lleva el logo (`logo`), la galería (`fotos`, con
+  `src` y `alt`), el horario, los enlaces y, si lo mandan, un texto largo en el
+  cuerpo del archivo, debajo del encabezado. Sin eso, el local queda solo con su
+  tarjeta. La tarjeta enlaza a la página con «Ver más». La imagen para compartir
+  el enlace es la `foto` de la tarjeta.
+- `paginaLocales` en `src/site.ts` dice dónde está la lista completa (hoy
+  `/borrador/`). Cuando el borrador pase a ser la portada, cambia a `/`.
 
 Agregar un local es crear un archivo. No hay que editar la página.
 
@@ -35,9 +44,10 @@ seguimiento no se carga. La imagen para compartir es `public/compartir.jpg`
 ## Imágenes
 
 En `public/fotos/`, reducidas antes de guardarlas: lado largo de 1600 px (2400
-para la portada), JPEG de calidad 80, progresivo. Las fotos de los locales van en
-`public/fotos/locales/<slug>.jpg`. Los originales viven fuera del repositorio, en
-`F:\OneDrive\9 WEB HYGGE\`.
+para la portada), JPEG de calidad 80, progresivo. Las fotos y el logo de cada local van en
+`public/fotos/locales/<slug>/` (logo de 480 px de lado largo). Los originales
+viven fuera del repositorio, en `F:\OneDrive\9 WEB HYGGE\locales\<slug>\`,
+con un `datos-<slug>.txt` que guarda lo que mandó el local y de dónde vino.
 
 ## Identidad
 

@@ -10,8 +10,14 @@ const locales = defineCollection({
     categoria: z.string().optional(),
     // Una o dos líneas. La manda cada local.
     descripcion: z.string().optional(),
-    // Ruta en public/: /fotos/locales/jah-cafe.jpg
+    // Foto de la tarjeta. Ruta en public/: /fotos/locales/jah-cafe/fachada.jpg
     foto: z.string().optional(),
+    // Logo del local, para su página propia.
+    logo: z.string().optional(),
+    // Galería de la página propia. Con descripción y al menos dos fotos, el
+    // local tiene página en /locales/<slug>/. El texto largo, si lo mandan, va
+    // en el cuerpo del archivo, debajo del encabezado.
+    fotos: z.array(z.object({ src: z.string(), alt: z.string() })).optional(),
     numeroLocal: z.string().optional(),
     horario: z.string().optional(),
     instagram: z.string().optional(),
