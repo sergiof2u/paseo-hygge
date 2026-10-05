@@ -71,7 +71,7 @@ indexar. Cuando haya datos, el borrador pasa a ser la portada.
 
 El campo `orden` sigue el recorrido real por el Paseo, y se respeta en la
 portada, en el borrador y en cualquier texto que los nombre: Juaica, Jah Café,
-Me Latte Chocolate, Casa Nube, Tinta y Tiempo, SUMA, Ahumadictos.
+Melatte Chocolate, Casa Nube, Tinta y Tiempo, SUMA, Ahumadictos.
 Polca entregó el local a fin de septiembre de 2026 y salió del sitio.
 
 ## Rutas
