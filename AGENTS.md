@@ -69,6 +69,8 @@ preguntó a los dueños cuál es el oficial.
 - Nada de superlativos de turismo («experiencia inolvidable», «lugar mágico»).
 - Nunca la construcción «no es X, sino Y».
 - No inventar datos de un local: si no lo mandó, queda por completar.
+- El Paseo es un paseo comercial y gastronómico. No está en el centro del pueblo
+  y sus locales no son pequeños: no describirlo así.
 
 ## Portada provisional y borrador
 
