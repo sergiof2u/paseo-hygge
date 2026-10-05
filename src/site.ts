@@ -4,7 +4,7 @@ export const site = {
   nombre: 'El Paseo Hygge',
   lema: 'Alegría & Bienestar',
   descripcion:
-    'Un paseo de jardines, fuentes y locales pequeños en el centro de Subachoque, Cundinamarca, a 40 kilómetros de Bogotá. Café, chocolate, comida, oficios y bienestar en un mismo lugar.',
+    'Paseo comercial y gastronómico en Subachoque, Cundinamarca, a 40 kilómetros de Bogotá, con jardines y fuentes. Café, chocolate, comida, oficios y bienestar en un mismo lugar.',
 
   direccion: 'Cl. 4 #4-58, Subachoque, Cundinamarca',
   // Ficha de El Paseo Hygge en Google Maps (no la de SUMA).
