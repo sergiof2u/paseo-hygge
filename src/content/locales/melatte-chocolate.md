@@ -15,5 +15,5 @@ numeroLocal: '103'
 horario: Lunes y miércoles a viernes, 9:00 a. m. a 7:00 p. m. Sábados, domingos y festivos, 8:30 a. m. a 7:00 p. m. Martes, cerrado.
 instagram: melattechocolate.subachoque
 whatsapp: '573134164515'
-orden: 3
+orden: 4
 ---
