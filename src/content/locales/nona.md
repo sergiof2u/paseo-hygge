@@ -19,3 +19,7 @@ whatsapp: '573134547699'
 web: https://www.nona.pizza
 orden: 1
 ---
+
+Masa de larga maduración y horno de piedra.
+
+La perfecta unión entre tradición, pasión y buena comida. Un encuentro obligado en Subachoque.
