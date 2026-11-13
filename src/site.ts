@@ -30,10 +30,8 @@ export const site = {
 // será /. Toda ruta interna pasa por aquí: una escrita a mano se rompe al cambiar.
 export const ruta = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
 
-// Página donde está la lista completa de locales. Mientras la portada sea
-// provisional, la lista vive en el borrador; cuando el borrador pase a ser la
-// portada, esto cambia a '/'.
-export const paginaLocales = '/borrador/';
+// Página donde está la lista completa de locales: la portada, desde el lanzamiento.
+export const paginaLocales = '/';
 
 export const whatsappUrl = site.whatsapp ? `https://wa.me/${site.whatsapp}` : '';
 export const instagramUrl = `https://www.instagram.com/${site.instagram}/`;

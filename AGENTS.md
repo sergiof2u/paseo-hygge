@@ -28,8 +28,8 @@ Estas instrucciones aplican a cualquier IA que trabaje en este repositorio.
   cuerpo del archivo, debajo del encabezado. Sin eso, el local queda solo con su
   tarjeta. La tarjeta enlaza a la página con «Ver más». La imagen para compartir
   el enlace es la `foto` de la tarjeta.
-- `paginaLocales` en `src/site.ts` dice dónde está la lista completa (hoy
-  `/borrador/`). Cuando el borrador pase a ser la portada, cambia a `/`.
+- `paginaLocales` en `src/site.ts` dice dónde está la lista completa: la portada
+  (`/`), desde el lanzamiento.
 
 Agregar un local es crear un archivo. No hay que editar la página.
 
@@ -73,23 +73,25 @@ preguntó a los dueños cuál es el oficial.
 - El Paseo es un paseo comercial y gastronómico. No está en el centro del pueblo
   y sus locales no son pequeños: no describirlo así.
 
-## Portada provisional y borrador
+## Portada
 
-Mientras llegan los datos de los locales, `/` es una portada provisional
-(`src/pages/index.astro`): la fachada, «en construcción» y la lista de locales.
-La página completa vive en `/borrador/` (`src/pages/borrador.astro`), sin
-indexar. Cuando haya datos, el borrador pasa a ser la portada.
+Hasta el lanzamiento, `/` fue una portada provisional «en construcción» y el
+sitio completo vivía en `/borrador/`, sin indexar. Con el lanzamiento el sitio
+completo pasó a `src/pages/index.astro`, abierto a buscadores. `/borrador/`
+(`src/pages/borrador.astro`) solo redirige a la portada y conserva el ancla,
+para que los enlaces viejos como `/borrador/#nona` sigan sirviendo.
 
 ## Orden de los locales
 
-El campo `orden` sigue el número de local, y se respeta en la portada, en el
-borrador y en cualquier texto que los nombre. Hoy: Nona Pizzattoria (101),
+El campo `orden` sigue el número de local, y se respeta en la portada, en las
+páginas de los locales y en cualquier texto que los nombre. Hoy: Nona Pizzattoria (101),
 Juaica (102), Melatte Chocolate (103), Jah Café (104), Casa Nube, Tinta y Tiempo,
 SUMA (106), Ahumadictos y, al final, Modo Xtreme.
 
 Regla (Sergio, 2026-11-13): los locales van por número de local. Los que todavía
 no mandan su número quedan donde estaban en el recorrido; cuando estén todos los
 números, se reordena la lista completa de menor a mayor, con las islas al final.
+
 Polca entregó el local a fin de septiembre de 2026 y salió del sitio. En
 noviembre lo tomó Nona Pizzattoria, el restaurante nuevo: es el primer local
 entrando a la derecha.

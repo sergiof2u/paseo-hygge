@@ -5,9 +5,9 @@ import { site, instagramUrl, facebookUrl, whatsappUrl, ruta } from '../site';
 interface Props {
   title?: string;
   description?: string;
-  // Páginas que no deben salir en buscadores, como el borrador.
+  // Páginas que no deben salir en buscadores.
   noindex?: boolean;
-  // Menú con anclas a las secciones de la página. La portada provisional no lo lleva.
+  // Menú con anclas a las secciones de la portada. Las páginas de los locales no lo llevan.
   menu?: boolean;
   // Imagen para compartir, ruta en public/. Sin ella se usa /compartir.jpg.
   imagen?: string;
