@@ -17,8 +17,9 @@ Estas instrucciones aplican a cualquier IA que trabaje en este repositorio.
   de publicidad. Lo que se repite vive ahí y en ningún otro lugar.
 - `src/content/locales/<slug>.md`: un archivo por local. El nombre del archivo es
   el ancla de su ficha: `/#jah-cafe`. Sirve para enlazar un local desde un anuncio.
-  Los campos están en `src/content.config.ts`. Un local sin `descripcion` sale con
-  «Ficha por completar».
+  Los campos están en `src/content.config.ts`. Un local sin `descripcion` sale solo
+  con su nombre (desde el 2026-11-13 ya no dice «Ficha por completar», de cara al
+  lanzamiento).
 - `publicado: false` oculta un local sin borrar su archivo.
 - **Página propia del local** (`src/pages/locales/[id].astro`, en `/locales/<slug>/`):
   se genera sola cuando el local tiene `descripcion` y al menos dos `fotos`

@@ -97,11 +97,7 @@ const iniciales = (nombre: string) =>
             <div class="local-cuerpo">
               {data.categoria && <p class="local-categoria">{data.categoria}</p>}
               <h3>{data.nombre}</h3>
-              {data.descripcion ? (
-                <p>{data.descripcion}</p>
-              ) : (
-                <p class="pendiente">Ficha por completar.</p>
-              )}
+              {data.descripcion && <p>{data.descripcion}</p>}
               {(data.numeroLocal || data.horario) && (
                 <p class="local-datos">
                   {data.numeroLocal && <span>Local {data.numeroLocal}</span>}

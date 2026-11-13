@@ -245,7 +245,6 @@ p { margin: 0 0 1em; }
   color: var(--rojo);
   margin-bottom: 0.4em;
 }
-.pendiente { color: var(--texto-suave); font-style: italic; }
 .local-datos { color: var(--texto-suave); display: flex; flex-direction: column; gap: 2px; }
 .local-enlaces { margin-top: auto; margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 6px 16px; }
 .local-enlaces a { font-weight: 700; text-decoration: none; }
