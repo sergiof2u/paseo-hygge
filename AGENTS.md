@@ -82,10 +82,14 @@ indexar. Cuando haya datos, el borrador pasa a ser la portada.
 
 ## Orden de los locales
 
-El campo `orden` sigue el recorrido real por el Paseo, y se respeta en la
-portada, en el borrador y en cualquier texto que los nombre: Nona Pizzattoria,
-Juaica, Jah Café, Melatte Chocolate, Casa Nube, Tinta y Tiempo, SUMA, Ahumadictos
-y, al final, Modo Xtreme.
+El campo `orden` sigue el número de local, y se respeta en la portada, en el
+borrador y en cualquier texto que los nombre. Hoy: Nona Pizzattoria (101),
+Juaica, Melatte Chocolate (103), Jah Café (104), Casa Nube, Tinta y Tiempo,
+SUMA (106), Ahumadictos y, al final, Modo Xtreme.
+
+Regla (Sergio, 2026-11-13): los locales van por número de local. Los que todavía
+no mandan su número quedan donde estaban en el recorrido; cuando estén todos los
+números, se reordena la lista completa de menor a mayor, con las islas al final.
 Polca entregó el local a fin de septiembre de 2026 y salió del sitio. En
 noviembre lo tomó Nona Pizzattoria, el restaurante nuevo: es el primer local
 entrando a la derecha.

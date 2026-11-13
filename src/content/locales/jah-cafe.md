@@ -15,7 +15,7 @@ numeroLocal: '104'
 horario: Todos los días, 9:00 a. m. a 7:00 p. m.
 instagram: jahcafesubachoque
 whatsapp: '573195856871'
-orden: 3
+orden: 4
 ---
 
 Un lugar donde el buen café, la repostería deliciosa y la mejor atención se unen para regalarte una experiencia única.
