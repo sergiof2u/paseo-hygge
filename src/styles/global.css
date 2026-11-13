@@ -324,12 +324,12 @@ p { margin: 0 0 1em; }
   .local-info { grid-template-columns: 1fr; gap: 8px; }
 }
 @media (max-width: 600px) {
-  .local { flex-direction: row; }
-  .local-foto, .local-sello { width: 96px; flex: none; aspect-ratio: auto; min-height: 100%; }
-  .local-sello { font-size: 1.8rem; }
+  /* Sin foto, la tarjeta va en fila con el sello angosto a la izquierda. Con
+     foto, la foto va arriba a todo el ancho: en una franja de 96 px se cortaba. */
+  .local:has(.local-sello) { flex-direction: row; }
+  .local-sello { width: 96px; flex: none; aspect-ratio: auto; min-height: 100%; font-size: 1.8rem; }
+  .local-foto { aspect-ratio: 4 / 3; }
   .local-cuerpo { padding: 16px 18px; }
-  .local-foto-enlace { width: 96px; flex: none; }
-  .local-foto-enlace .local-foto { width: 100%; height: 100%; }
   .local-cabecera { flex-direction: column; align-items: flex-start; gap: 16px; }
   .local-logo { width: 96px; height: 96px; }
   .local-galeria { columns: 2; column-gap: 8px; }
