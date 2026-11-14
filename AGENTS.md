@@ -84,7 +84,7 @@ indexar. Cuando haya datos, el borrador pasa a ser la portada.
 
 El campo `orden` sigue el número de local, y se respeta en la portada, en el
 borrador y en cualquier texto que los nombre. Hoy: Nona Pizzattoria (101),
-Juaica, Melatte Chocolate (103), Jah Café (104), Casa Nube, Tinta y Tiempo,
+Juaica (102), Melatte Chocolate (103), Jah Café (104), Casa Nube, Tinta y Tiempo,
 SUMA (106), Ahumadictos y, al final, Modo Xtreme.
 
 Regla (Sergio, 2026-11-13): los locales van por número de local. Los que todavía
