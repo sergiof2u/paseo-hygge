@@ -1,7 +1,7 @@
 ---
 nombre: Melatte Chocolate
 categoria: Chocolatería artesanal
-descripcion: Un espacio acogedor donde el chocolate y el cacao son protagonistas. Ofrecemos chocolates calientes, desayunos, onces, waffles de pan de yuca y otras preparaciones artesanales para disfrutar y compartir.
+descripcion: Un espacio acogedor donde el chocolate y el cacao son protagonistas. Ofrecemos desayunos gourmet, fondue de chocolate y otras preparaciones artesanales para disfrutar y compartir.
 foto: /fotos/locales/melatte-chocolate/chocolate-con-waffles.jpg
 logo: /fotos/locales/melatte-chocolate/logo.jpg
 fotos:
